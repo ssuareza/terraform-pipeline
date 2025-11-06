@@ -4,13 +4,8 @@ This repository is a hands-on example for learning how to set up a pipeline usin
 
 It basically creates two S3 buckets:
 
-- `dev-terraform-infra-pipeline`: if you commit changes in a "dev" branch.
-- `prod-terraform-infra-pipeline`: if you merge the changes into the main branch through a pull request.
-
-## Requirements
-
-- Terraform v1.3+
-- AWS CLI v2
+- `terraform-pipeline-dev`: if you commit changes in "dev" branch.
+- `terraform-pipeline-main`: if you commit changes in "main" branch.
 
 ## How to use it?
 
@@ -19,7 +14,7 @@ It basically creates two S3 buckets:
 2. Connect GitHub Actions to actions in AWS creating an OIDC provider:
 <https://medium.com/@ssuareza/use-iam-roles-to-connect-github-actions-to-aws-277ea7fe5387>
 
-3. Create a bucket in AWS S3 to store Terraform state and locking file. For example `terraform-pipeline-123`.
+3. Create a bucket in AWS S3 to store the Terraform state and locking file. For example `terraform-pipeline-123`.
 
 4. Add the following GitHub Secrets to your repository:
 
