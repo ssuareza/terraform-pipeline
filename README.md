@@ -32,13 +32,3 @@ It basically creates two S3 buckets:
 ## Destroy
 
 You can remove all the Terraform created resources by editing the `terraform/destroy.json` file. Set the value to "true" and commit your changes.
-
-## Reference
-
-<https://github.com/brunograna/terraform-infra-pipeline>
-
-## Notes
-
-With S3-native state locking, we no longer need DynamoDB for state locking. Instead, we use a lock file directly within the S3 bucket. This approach requires fewer resources to deploy and reduces the IAM permissions required for accessing Terraform state, as managing a DynamoDB table is no longer necessary.
-
-This new feature simplifies the setup process for new AWS technicians, as the lock files stored in S3 will resemble local Terraform state files, making it easier to understand and manage.
