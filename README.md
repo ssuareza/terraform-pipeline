@@ -7,11 +7,6 @@ It basically creates two S3 buckets:
 - `terraform-pipeline-dev`: if you commit changes in "dev" branch.
 - `terraform-pipeline-main`: if you commit changes in "main" branch.
 
-## Requirements
-
-- Terraform v1.3+
-- AWS CLI v2
-
 ## How to use it?
 
 1. Create a new github repository with this repository code.
@@ -19,7 +14,7 @@ It basically creates two S3 buckets:
 2. Connect GitHub Actions to actions in AWS creating an OIDC provider:
 <https://medium.com/@ssuareza/use-iam-roles-to-connect-github-actions-to-aws-277ea7fe5387>
 
-3. Create a bucket in AWS S3 to store Terraform state and locking file. For example `terraform-pipeline-123`.
+3. Create a bucket in AWS S3 to store the Terraform state and locking file. For example `terraform-pipeline-123`.
 
 4. Add the following GitHub Secrets to your repository:
 
