@@ -54,3 +54,10 @@ jobs:
           soft_fail: true
           working_directory: .
           additional_args: --concise-output --exclude-downloaded-modules
+
+      - name: Terraform Apply
+        run: |
+          terraform apply \
+            -input=false \
+            -auto-approve \
+            -var-file="prod.tfvars"
