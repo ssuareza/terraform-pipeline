@@ -1,10 +1,10 @@
-name: Terraform Production Workflow
+name: Terraform Development Workflow
 
 on:
   push:
-    branches: [main]
+    branches: [dev]
   pull_request:
-    branches: [main]
+    branches: [dev]
 
 permissions:
   id-token: write
@@ -33,7 +33,7 @@ jobs:
           terraform init \
             -input=false \
             -backend-config="bucket=${{ secrets.AWS_STATEFILE_S3_BUCKET }}" \
-            -backend-config="key=main/terraform.tfstate" \
+            -backend-config="key=dev/terraform.tfstate" \
 
       - name: Terraform Validate
         run: |
@@ -43,7 +43,7 @@ jobs:
         run: |
           terraform plan \
             -input=false \
-            -var-file="prod.tfvars"
+            -var-file="dev.tfvars"
 
       - name: Terraform tfsec security scan
         uses: aquasecurity/tfsec-action@v1.0.3
@@ -57,4 +57,4 @@ jobs:
           terraform apply \
             -input=false \
             -auto-approve \
-            -var-file="prod.tfvars"
+            -var-file="dev.tfvars"
