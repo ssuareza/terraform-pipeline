@@ -47,3 +47,10 @@ jobs:
           terraform plan \
             -input=false \
             -var-file="prod.tfvars"
+
+      - name: Terraform tfsec security scan
+        uses: aquasecurity/tfsec-action@v1.0.3
+        with:
+          soft_fail: true
+          working_directory: .
+          additional_args: --concise-output --exclude-downloaded-modules
