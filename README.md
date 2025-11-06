@@ -1,4 +1,4 @@
-# terraform-infra-pipeline
+# terraform-pipeline
 
 This repository is a hands-on example for learning how to set up a pipeline using Terraform, GitHub Actions, and AWS.
 
