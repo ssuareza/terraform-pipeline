@@ -17,5 +17,10 @@ variable "branch_name" {
 }
 
 resource "aws_s3_bucket" "bucket" {
-  bucket = "terraform-pipeline-${var.branch_name}"
+  bucket = "terraform-pipeline-${var.branch_name}-${random_id.suffix.hex}"
+}
+
+# random id to create a bucket name
+resource "random_id" "suffix" {
+  byte_length = 4
 }
