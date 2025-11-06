@@ -28,7 +28,3 @@ It basically creates two S3 buckets:
 - AWS_STATEFILE_S3_BUCKET: terraform-pipeline-123
 
 5. Test it by pushing to the "dev" branch. When you're ready to test it in production, just open a pull request and merge your changes.
-
-## Destroy
-
-You can remove all the Terraform created resources by editing the `terraform/destroy.json` file. Set the value to "true" and commit your changes.
