@@ -19,11 +19,6 @@ jobs:
       - name: Git clone the repository
         uses: actions/checkout@v3
 
-      - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v3
-        with:
-          terraform_version: 1.8.3
-
       - name: Configure aws credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -31,9 +26,6 @@ jobs:
           role-session-name: GitHub_to_AWS_via_FederatedOIDC
           aws-region: ${{ secrets.AWS_REGION }}
 
-      - name: Terraform Init
+      - name: Sts GetCallerIdentity
         run: |
-          terraform init \
-            -input=false \
-            -backend-config="bucket=${{ secrets.AWS_STATEFILE_S3_BUCKET }}" \
-            -backend-config="key=main/terraform.tfstate" \
+          aws sts get-caller-identity
