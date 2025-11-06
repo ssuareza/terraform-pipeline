@@ -2,11 +2,9 @@ name: Terraform Development Workflow
 
 on:
   push:
-    branches-ignore:
-      - main
+    branches: [dev]
   pull_request:
-    branches-ignore:
-      - main
+    branches: [dev]
 
 permissions:
   id-token: write
@@ -55,7 +53,6 @@ jobs:
           additional_args: --concise-output --exclude-downloaded-modules
 
       - name: Terraform Apply
-        if: github.ref == 'refs/heads/dev' && github.event_name == 'push'
         run: |
           terraform apply \
             -input=false \
