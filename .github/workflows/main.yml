@@ -40,7 +40,4 @@ jobs:
 
       - name: Terraform Validate
         run: |
-          terraform validate \
-            -input=false \
-            -backend-config="bucket=${{ secrets.AWS_STATEFILE_S3_BUCKET }}" \
-            -backend-config="key=main/terraform.tfstate" \
+          terraform validate
