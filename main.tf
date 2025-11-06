@@ -3,6 +3,8 @@ terraform {
 
   backend "s3" {
     use_lockfile = true
+    bucket       = var.bucket_name
+    key          = "main/terraform.tfstate"
   }
 }
 
