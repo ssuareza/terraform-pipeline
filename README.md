@@ -4,7 +4,7 @@ This repository is a hands-on example for learning how to set up a pipeline usin
 
 It basically creates two S3 buckets:
 
-- `dev-terraform-infra-pipeline`: if you commit changes in a "dev" branch.
+- `terraform-pipeline`: if you commit changes in a "dev" branch.
 - `prod-terraform-infra-pipeline`: if you merge the changes into the main branch through a pull request.
 
 ## Requirements
