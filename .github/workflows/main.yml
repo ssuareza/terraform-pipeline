@@ -8,10 +8,6 @@ on:
   pull_request:
     branches: [main]
 
-env:
-  AWS_REGION: "us-east-1"
-  ARN_TO_ASSUME: "arn:aws:iam::479553947752:role/terraform-pipeline"
-
 # Permission can be added at job level or workflow level
 permissions:
   id-token: write # This is required for requesting the JWT
@@ -26,9 +22,9 @@ jobs:
       - name: Configure aws credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: ${{ env.ARN_TO_ASSUME }}
+          role-to-assume: ${{ secrets.ARN_TO_ASSUME }}
           role-session-name: GitHub_to_AWS_via_FederatedOIDC
-          aws-region: ${{ env.AWS_REGION }}
+          aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Sts GetCallerIdentity
         run: |

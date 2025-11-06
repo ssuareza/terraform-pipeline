@@ -17,11 +17,12 @@ It basically creates two S3 buckets:
 1. Create a new github repository with this repository code.
 
 2. Connect GitHub Actions to actions in AWS creating an OIDC provider:
-<https://aws.amazon.com/blogs/security/use-iam-roles-to-connect-github-actions-to-actions-in-aws/>
+<https://medium.com/@ssuareza/use-iam-roles-to-connect-github-actions-to-aws-277ea7fe5387>
 
+3. Add the following GitHub Secrets to your repository:
+- AWS_REGION: us-east-1
+- 
 3. Create a bucket in AWS S3 to store Terraform state and locking file. For example `terraform-pipeline-123`.
-
-I recommend you to Enable Bucket Versioning.
 
 4. Test it by pushing to the "dev" branch. When you're ready to test it in production, just open a pull request and merge your changes.
 

@@ -1,1 +1,1 @@
-bucket_name = "prod-terraform-infra-pipeline"
+branch = "main"
